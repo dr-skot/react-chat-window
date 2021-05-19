@@ -21,20 +21,23 @@ class Message extends Component {
   }
 
   render () {
+    let me = this.props.message.author === 'me';
     let contentClassList = [
       'sc-message--content',
-      (this.props.message.author === 'me' ? 'sent' : 'received')
+      (me ? 'sent' : 'received')
     ];
     return (
-      <div className="sc-message">
-        <div className={contentClassList.join(' ')}>
-          <div className="sc-message--avatar" style={{
-            backgroundImage: `url(${chatIconUrl})`
-          }}></div>
-          {this._renderMessageOfType(this.props.message.type)}
+      <div>
+        { !me && <div className="sc-message--author">{this.props.message.author}</div>}
+        <div className="sc-message">
+          <div className={contentClassList.join(' ')}>
+            {this._renderMessageOfType(this.props.message.type)}
+          </div>
         </div>
-      </div>);
+      </div>
+     );
   }
 }
 
 export default Message;
+

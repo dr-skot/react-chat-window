@@ -1,8 +1,18 @@
 .sc-message {
-  width: 300px;
+  width: 325px;
   margin: auto;
   padding-bottom: 10px;
   display: flex;
+}
+
+.sc-message--author {
+  width: 325px;
+  padding-left: 1em;
+  margin: auto;
+  display: flex;
+  font-weight: 300;
+  font-size: 14px;
+  color: #4e8cff;
 }
 
 .sc-message--content {
@@ -10,11 +20,20 @@
   display: flex;
 }
 
+.sc-message--bubble-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
 .sc-message--content.sent {
   justify-content: flex-end;
 }
 
 .sc-message--content.sent .sc-message--avatar {
+  display: none;
+}
+
+.sc-message--content.sent .sc-message--author {
   display: none;
 }
 
